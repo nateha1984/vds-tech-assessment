@@ -27,7 +27,7 @@ public class WikiController {
     private final ArticleService articleService;
 
     @GetMapping
-    public List<Article> getArticle(@RequestParam("articleContent") final String content) {
+    public List<Article> getArticle(@RequestParam(name= "articleContent", required = false) final String content) {
         if (StringUtils.isNotBlank(content)) {
             return articleService.findArticlesContaining(content);
         } else {
